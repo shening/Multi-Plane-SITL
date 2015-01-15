@@ -6,7 +6,7 @@ import csv
 
 
 TCP_IP = '127.0.0.1'
-TCP_PORT = 5030
+TCP_PORT = 5035
 BUFFER_SIZE = 100  # Normally 1024, but we want fast response
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -26,7 +26,7 @@ conn.settimeout(5.0)
 #------------------------------------
 
 plume_box = []
-f = open("C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_1/boundary2.txt")
+f = open("C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_2/boundary2.txt")
 parser = csv.reader(f, delimiter='\t')
 row_init = 0
   
@@ -48,7 +48,7 @@ standard_nav = 1
 #---Read R code waypoints 
 A = []
 i_row = 0
-with open('C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_1/R_nav_coordinates.csv', 'rb') as f:
+with open('C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_2/R_nav_coordinates.csv', 'rb') as f:
     reader = csv.reader(f)
     for row in reader:
         if i_row == 0:
@@ -89,7 +89,7 @@ while True:
 
     
     
-    with open('C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_1/R_nav_coordinates.csv', 'rb') as R_file:
+    with open('C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_2/R_nav_coordinates.csv', 'rb') as R_file:
         reader = csv.reader(R_file)
         A = []
         i_row = 0
@@ -136,7 +136,7 @@ while True:
             cur_x = (cur_lng - float(plume_box[4][9]))/DeltaLong
             cur_pos = [cur_x, cur_y]
             cur_time = time.time()
-            with open('C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_1/Plane_flightpoints_log.csv', 'a') as Pl_file:
+            with open('C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_2/Plane_flightpoints_log.csv', 'a') as Pl_file:
                     #writer = csv.writer(Pl_file)
                     #writer.writerows(cur_pos)
                     Pl_file.write("%f" % cur_x )
@@ -147,7 +147,7 @@ while True:
                 
                 Plane_pos = numpy.vstack([Plane_pos,cur_pos])
                 print 'Writing Currest Plane position'
-                with open('C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_1/Plane_flightpoints.csv', 'wb') as Pl_file:
+                with open('C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_2/Plane_flightpoints.csv', 'wb') as Pl_file:
                     writer = csv.writer(Pl_file)
                     writer.writerows(Plane_pos)
                     Pl_file.close()
@@ -165,7 +165,7 @@ while True:
                     prev_wp_count = wp_count
                     Plane_pos = numpy.vstack([Plane_pos,cur_pos])
                     print 'Writing Currest Plane position'
-                    with open('C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_1/Plane_flightpoints.csv', 'wb') as Pl_file:
+                    with open('C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_2/Plane_flightpoints.csv', 'wb') as Pl_file:
                         writer = csv.writer(Pl_file)
                         writer.writerows(Plane_pos)
                         Pl_file.close()

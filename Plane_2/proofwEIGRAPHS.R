@@ -50,10 +50,9 @@ while(count < 2000)
 {
 
   
-
 grid.training = matrix(0, nrow=0, ncol=2)
   
-pythondata = read.csv("C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_1/Plane_flightpoints.csv");
+pythondata = read.csv("C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_2/Plane_flightpoints.csv");
   
 for (i in 1:dim(pythondata)[1])
   {
@@ -64,7 +63,7 @@ for (i in 1:dim(pythondata)[1])
   }
 Plane_path = matrix(0, nrow=0, ncol=2)
 
-pythondata = read.csv("C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_1/Plane_flightpoints_log.csv");
+pythondata = read.csv("C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_2/Plane_flightpoints_log.csv");
 
 for (i in 1:dim(pythondata)[1])
 {
@@ -259,7 +258,7 @@ pic_count = pic_count+1
 # }
 if (dim(grid.training)[1] > 8)
 {
-  R_data = read.csv("C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_1/R_nav_coordinates.csv");
+  R_data = read.csv("C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_2/R_nav_coordinates.csv");
   grid.training2 = matrix(0, nrow=0, ncol=2)
   for (i in 1:dim(R_data)[1])
   {
@@ -271,7 +270,7 @@ if (dim(grid.training)[1] > 8)
   grid.training2 = rbind(grid.training2,c(s.max.EI.estimated[1],s.max.EI.estimated[2]))
   
   
-  write.csv(grid.training2, file = "C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_1/R_nav_coordinates.csv", row.names = FALSE)
+  write.csv(grid.training2, file = "C:/Users/sebas_000/Documents/GitHub/Multi-Plane-SITL/Plane_2/R_nav_coordinates.csv", row.names = FALSE)
 }
 
 predicted = matrix(y.mean, nrow=ngrid, ncol=ngrid)
